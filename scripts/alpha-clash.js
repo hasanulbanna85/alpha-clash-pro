@@ -8,22 +8,22 @@ function handleKeyboardKeyUpEvent(event){
     if(playerPressed === expectedAlphabet){
         removeBackgroundColorById(expectedAlphabet);
         
-        const currentScoreElement = document.getElementById('current-score');
-        const currentScoreText = currentScoreElement.innerText;
-        const currentScore = parseInt(currentScoreText);
-        const newScore = currentScore + 1;
-
-        currentScoreElement.innerText = newScore;
-
+        const currentScore = getTextElementById('current-score');
+        const updatedScore = currentScore + 1;
+        setTextElementById('current-score', updatedScore);
         continueGame();
     }
     else{
-        const currentLifeElement = document.getElementById('current-life');
+        const currentLife = getTextElementById('current-life');
+        const updatedLife = currentLife - 1;
+        setTextElementById('current-life', updatedLife);
+
+        /* const currentLifeElement = document.getElementById('current-life');
         const currentLifeText = currentLifeElement.innerText;
         const currentLife = parseInt(currentLifeText);
         const newLife = currentLife - 1;
-
-        currentLifeElement.innerText = newLife;
+ */
+        // currentLifeElement.innerText = newLife;
     }
 }
 
